@@ -1,0 +1,39 @@
+
+.country-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.2em;
+    box-shadow: 0 2px 5px lightgray;
+    cursor: pointer;
+    height: 100%;
+}
+
+.card-flag {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 0.2em 0.2em 0 0;
+}
+
+.card-details {
+    padding: 1.5em 1em 2em 1em;
+    font-size: 14px;
+}
+
+.card-name {
+    margin-bottom: 0.5em;
+}
+
+.card-population, .card-region, .card-capital {
+    margin-bottom: 0.2em;
+}
+
+.card-population span, .card-region span, .card-capital span {
+    font-weight: bold;
+}
+
+.dark-element {
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+    box-shadow: 0 2px 5px hsl(200, 15%, 8%);
+}
