@@ -1,6 +1,4 @@
 import React from "react";
-import TitleBar from "./TitleBar";
-import { useState, useEffect } from "react";
 import "../styles/DetailsPage.css";
 import backArrow from '../assets/arrow-left.svg'
 
@@ -12,10 +10,6 @@ const DetailsPage = ({ country, countries, onBack, changeCountry, darkMode }) =>
     ? country.currencies.map((cur) => cur.name).join(", ")
     : "";
 
-  const borders = country.borders
-    ? country.borders.map((border) => border)
-    : null;
-
   let population = country.population.toLocaleString();
 
   const borderCountries = countries.filter((c) =>
@@ -26,11 +20,11 @@ const DetailsPage = ({ country, countries, onBack, changeCountry, darkMode }) =>
     <>
       <div className={`details-container ${darkMode ? 'dark-container' : ''}`}>
         <button onClick={onBack} className={`back-button ${darkMode ? 'dark-element' : ''}`}>
-          <img src={backArrow} alt="back-arrow" className="back-arrow"/>
+          <img src={backArrow} alt="" className="back-arrow"/>
           Back
         </button>
         <div className="details-country">
-          <img className="detail-flag" src={country.flag} alt="detail-flag" />
+          <img className="detail-flag" src={country.flag} alt={`Flag of ${country.name}`} />
           <div className="detail-stats">
             <h2 className="detail-country-name">{country.name}</h2>
             <div className="detail-stats-columns">
@@ -45,26 +39,21 @@ const DetailsPage = ({ country, countries, onBack, changeCountry, darkMode }) =>
                   <strong>Region:</strong> {country.region}
                 </p>
                 <p>
-                  <strong>Sub Region:</strong>
-                  {country.subregion}
+                  <strong>Sub Region:</strong> {country.subregion || "N/A"}
                 </p>
                 <p>
-                  <strong>Capital:</strong>
-                  {country.capital}
+                  <strong>Capital:</strong> {country.capital || "N/A"}
                 </p>
               </div>
               <div className="detail-stats-column">
                 <p>
-                  <strong>Top Level Domain:</strong>
-                  {country.topLevelDomain}
+                  <strong>Top Level Domain:</strong> {country.topLevelDomain?.join(", ")}
                 </p>
                 <p>
-                  <strong>Currencies:</strong>
-                  {currencies}
+                  <strong>Currencies:</strong> {currencies || "N/A"}
                 </p>
                 <p>
-                  <strong>Languages:</strong>
-                  {languages}
+                  <strong>Languages:</strong> {languages || "N/A"}
                 </p>
               </div>
             </div>
