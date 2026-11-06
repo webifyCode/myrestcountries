@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Filter = ({setFilter, darkMode}) => {
+const Filter = ({filter, setFilter, darkMode}) => {
   return (
-    <select onChange={(e)=> setFilter(e.target.value)} className={`filter element ${darkMode ? 'dark-element' : ''}`} name="filter" id="filter">
+    <select value={filter === 'All' ? '' : filter} onChange={(e)=> setFilter(e.target.value)} className={`filter element ${darkMode ? 'dark-element' : ''}`} name="filter" id="filter">
       <option value="" hidden>Filter by Region</option>
       <option value="All">All Countries</option>
       <option value="Africa">Africa</option>

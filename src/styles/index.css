@@ -53,3 +53,8 @@ html, body, #root, .content-container {
 
 
 
+
+.status-message {
+    margin-top: 2rem;
+    text-align: center;
+}
